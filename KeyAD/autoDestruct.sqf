@@ -2,6 +2,8 @@ sleep 0.5;
 _charID = _this select 3 select 0;
 _totalKeys = _this select 3 select 1;
 _itemKey = _this select 3 select 2;
+_playerUID = getPlayerUID player;
+
 
 _counter = -1;
 for "_i" from 1 to _totalKeys do {
@@ -44,16 +46,20 @@ player removeAction keyAD_exit;
   _vehIdArr = [];
   _notExist = false;
 {
-
+  _veh = _x;
   _abort = false;
   _vehID = _x getVariable ["CharacterID","0"];
   _vehIDNum = parseNumber _vehID;
   _vehIdArr set [(count _vehIdArr),_vehIDNum];
-  
- 
+  _vehPUID = _veh getVariable ["OwnerPUID","0"];
+  _typeOfX = typeOf _x;
+
+
+
+// ["conGreen",format ["_vehPUID: %1, _veh: %2", _vehPUID, _veh]] call diaglog;
   
      _existCheck = false;  
-     _typeOfX = typeOf _x;
+
      _counter = -1;
 	 for "_i" from 1 to _filteredCount do {
 	      _counter = _counter + 1;
@@ -81,7 +87,8 @@ player removeAction keyAD_exit;
                 _typeOfVeh = typeOf _x;
                 _vehDis = player distance _x;
 				_maxDis = 4000;
-				
+			  if (_playerUID == _vehPUID) then { 
+			  
 				if (_vehDis <= _maxDis) then {
 
 		 
@@ -135,7 +142,11 @@ player removeAction keyAD_exit;
                   
                   cutText [format["%1 is out of range!", _typeOfVeh], "PLAIN DOWN"];				  
 				  _abort = true;	
-				};						
+				};
+              } else {
+                  cutText [format["%1 is not yours!", _typeOfVeh], "PLAIN DOWN"];				  
+				  _abort = true;
+			  };	
             };	   
      
 
