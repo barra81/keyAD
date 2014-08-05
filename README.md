@@ -43,6 +43,16 @@ in the else directly below it change the original path to this one
 "keyAD\player_traderMenuHive.sqf";
 
 _____________________________________________________________________________________________
+
+in your discription.ext
+
+add
+
+#include "keyAD\keyAD_icons.hpp"
+
+into the "RSCTitels" class, see sample for detailed position
+
+______________________________________________________________________________________________ 
                  SERVER FILES
 				 
 at your "@dayz_dayz_epoch_server" folder, open dayz_code.pbo
