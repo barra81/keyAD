@@ -21,6 +21,7 @@ _keyPosInInv = [];
 
 _keyPosCount = count _keyPosInInv;
 _keysInInv = [];
+
 if (_keyPosCount > 0) then {
 
     _counter = -1;
