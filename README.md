@@ -113,7 +113,7 @@ to this array:
          [_object,_uid,_characterID,_class,_dir,_location,_donotusekey,_activatingPlayer] spawn {				
                  
 
-for details see serverfile samples				 
+			 
 ----------------------------------------------------------------------------------------------------	
 				 
 add
@@ -138,7 +138,7 @@ BELOW
 
 
 		
-		
+		for details see serverfile samples	
 		
 		
 		you are done ;)
