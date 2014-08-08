@@ -57,7 +57,7 @@ ________________________________________________________________________________
 				 
 at your "@dayz_dayz_epoch_server" folder, open dayz_code.pbo
 
-in your dayz_code.pbo open the server_monitor.sqf
+in your dayz_server.pbo open the server_monitor.sqf
 
 Add
 
@@ -90,7 +90,7 @@ ________________________________________________________________________________
 				 
 at your "@dayz_dayz_epoch_server" folder, open dayz_code.pbo
 
-in your dayz_code.pbo open the server_publishVehicle2.sqf
+in your dayz_server.pbo open the server_publishVehicle2.sqf
 
 add
 
