@@ -55,7 +55,7 @@ into the "RSCTitels" class, see sample for detailed position
 ______________________________________________________________________________________________ 
                  SERVER FILES
 				 
-at your "@dayz_dayz_epoch_server" folder, open dayz_code.pbo
+at your "@dayz_dayz_epoch_server" folder, open dayz_server.pbo
 
 in your dayz_server.pbo open the server_monitor.sqf
 
@@ -88,7 +88,7 @@ Below
 ______________________________________________________________________________________________
                  SERVER FILES
 				 
-at your "@dayz_dayz_epoch_server" folder, open dayz_code.pbo
+at your "@dayz_dayz_epoch_server" folder, open dayz_server.pbo
 
 in your dayz_server.pbo open the server_publishVehicle2.sqf
 
@@ -112,7 +112,8 @@ to this array:
           // Switched to spawn so we can wait a bit for the ID
          [_object,_uid,_characterID,_class,_dir,_location,_donotusekey,_activatingPlayer] spawn {				
                  
-	
+
+for details see serverfile samples				 
 ----------------------------------------------------------------------------------------------------	
 				 
 add
