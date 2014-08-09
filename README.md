@@ -1,7 +1,7 @@
 keyAD
 =====
 
-destroy vehicle remotly(if key is present and OWNER) via any item configured in extraRc.hpp
+destroy vehicle remotly(if key is present and OWNER) via any item configured in extraRC.hpp
 
 
 
@@ -30,8 +30,8 @@ in your extraRC.hpp add :
  
  find
  
- // trader menu code
-	if (DZE_ConfigTrader) then {
+// trader menu code
+if (DZE_ConfigTrader) then {
 		call compile preprocessFileLineNumbers "originalPath";
 		
 and replace the original path with this one
@@ -44,7 +44,7 @@ in the else directly below it change the original path to this one
 
 _____________________________________________________________________________________________
 
-in your discription.ext
+in your description.ext
 
 add
 
