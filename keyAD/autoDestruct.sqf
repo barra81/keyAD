@@ -1,18 +1,11 @@
 sleep 0.5;
 _charID = _this select 0;
 _whichAction = _this select 1;
-
-
 _counterItemKey = _this select 2;
-
-
-
 _playerUID = getPlayerUID player;
 
 
-
-
-    _filtered = [[],[],[],[],[]]; 
+    _filtered = [];	
     _cfg = (configFile >> "CfgVehicles"); 
     for "_i" from 0 to ((count _cfg)-1) do { 
         if (isClass ((_cfg select _i) ) ) then { 
@@ -20,75 +13,43 @@ _playerUID = getPlayerUID player;
 								
 			
             if ( (_cfgName isKindOf "Air") && (getNumber ((_cfg select _i) >> "scope") == 2) ) then { 
-                _side = getNumber ((_cfg select _i) >> "side"); 
-                _temp = _filtered select _side; 
-                _temp set [count _temp, _cfgName ]; 
-                _filtered set [_side, _temp]; 
+
+			   _filtered set [(count _filtered), _cfgName]; 
             }; 
 			
 		    if ( (_cfgName isKindOf "Car") && (getNumber ((_cfg select _i) >> "scope") == 2) ) then { 
-                _side = getNumber ((_cfg select _i) >> "side"); 
-                _temp = _filtered select _side; 
-                _temp set [count _temp, _cfgName ]; 
-                _filtered set [_side, _temp]; 
+               
+			   _filtered set [(count _filtered), _cfgName]; 
+			   
             }; 
 						
         }; 
     };  
 
-	
-  _filteredCount = count _filtered;
-  _vehicle = vehicles;
-  _vehIdArr = [];
-  _notExist = false; 
+  _vehicle = nearestObjects [player, _filtered, 30000];
   ownedVeh = [];
 
 {
   _veh = _x;
   _vehID = _x getVariable ["CharacterID","0"];
   _vehIDNum = parseNumber _vehID;
-  _vehIdArr set [(count _vehIdArr),_vehIDNum];
+
 
   
 
   if (_vehIDNum == _charID ) then {
   
-      _typeOfVeh = typeOf _x;
+
       _vehPUID = _x getVariable ["OwnerPUID","0"];
-  
-  
-      _existCheck = false;  
-      _counter = -1;
-	 for "_i" from 1 to _filteredCount do {
-	      _counter = _counter + 1;
-	      _subArr = _filtered select _counter;
-		         
-		  if (_typeOfVeh in _subArr) then {
 
-                _existCheck = true;             
-                _notExist = false;		  
 
-				
-			} else {
-			
-				_notExist = true;
-			};	
-              
-			  if (_existCheck) exitWith {_notExist = false;};
-  
-        };
-
-	
-			 if ((_playerUID == _vehPUID) && !_notExist) then { 
+			 if (_playerUID == _vehPUID) then { 
 			 
 			      ownedVeh set [(count ownedVeh),_x];
 				
                 };
     };	   
-     
-
-
-	
+     	
 }forEach _vehicle;
 
 

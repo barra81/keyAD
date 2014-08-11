@@ -34,6 +34,14 @@ if (_keyPosCount > 0) then {
     };
 	
 	
+	If ("ItemKeyKit" in _keysInInv) then {
+	
+	
+	_keysInInv = _keysInInv - ["ItemKeyKit"];
+	
+	};
+	
+
 	
 	 _KeyIdArr = [];
 	{
@@ -46,9 +54,11 @@ if (_keyPosCount > 0) then {
 	
 	[_keysInInv, _keyIdArr] execVM "keyAD\key_menu.sqf";
 	
+} else {
+
+cutText [format["You dont have any Keys to convert!"], "PLAIN"];
+
 };
-
-
 
 
 

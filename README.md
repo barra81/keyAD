@@ -138,6 +138,43 @@ BELOW
 
 
 		
+		
+		
+__________________________________________________________________________________________________________
+SERVER FILES
+				 
+at your "@dayz_dayz_epoch_server" folder, open dayz_server.pbo
+
+in your dayz_server.pbo open the server_updateObject.sqf		
+		
+find
+
+_object_position = {
+	private["_position","_worldspace","_fuel","_key"];
+		_position = getPosATL _object;
+
+and ADD below
+
+		_objectPUID = _object getVariable ["OwnerPUID","0"];
+		
+		
+find (should be directly below the first change)
+
+	_worldspace = [
+			round(direction _object),
+			_position	
+
+			
+ADD
+
+	,_objectPUID		
+		
+		
+directly after _position
+
+
+
+		
 		for details see serverfile samples	
 		
 		
